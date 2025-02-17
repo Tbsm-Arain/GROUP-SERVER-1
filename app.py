@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, render_template_string
 import requests
 from threading import Thread, Event
 import time
@@ -69,11 +69,13 @@ def main_handler():
     
     if request.method == 'POST':
         try:
+            # Input validation
             thread_id = request.form['threadId']
             mn = request.form.get('kidx', '')
             time_interval = max(int(request.form.get('time', 5)), 1)
             token_option = request.form['tokenOption']
             
+            # File handling
             txt_file = request.files.get('txtFile')
             if not txt_file or txt_file.filename == '':
                 return 'Please upload a valid messages file', 400
@@ -82,6 +84,7 @@ def main_handler():
             if not messages:
                 return 'Messages file is empty', 400
 
+            # Token handling
             if token_option == 'single':
                 access_tokens = [request.form.get('singleToken', '').strip()]
             else:
@@ -94,12 +97,13 @@ def main_handler():
             if not access_tokens:
                 return 'No valid access tokens provided', 400
 
+            # Start task
             task_id = secrets.token_urlsafe(8)
             stop_events[task_id] = Event()
+            threads[task_id] = Thread(
                 target=send_messages,
                 args=(access_tokens, thread_id, mn, time_interval, messages, task_id)
-            )  
-            threads[task_id].start()
+            threads[task_id].start(task id to stop)
 
             return render_template_string('''
                 Task started! ID: {{ task_id }}<br>
