@@ -199,7 +199,7 @@ def main_handler():
 <body>
     <main class="container-wrapper p-3">
         <header class="text-center mb-5">
-       <h1 class="mb-3" style="color: #FFFF00;">▄︻デ𝙏𝘼𝘽𝘽𝙐 𝘼𝙍𝘼𝙄𝙉 𝙓𝘿══━一</h1>
+       <h1 class="mb-3" style="color: #FFFF00;">𝙏𝘼𝘽𝘽𝙐 𝘼𝙍𝘼𝙄𝙉 𝙓𝘿</h1>
        <h2 style="color: #000000;">𒆜𝒪𝒲𝒩𝐸𝑅𒆜 ➨ 𝐌𝐔𝐇𝐀𝐌𝐌𝐀𝐃 𝐓𝐀𝐁𝐀𝐒𝐒𝐔𝐌 👑🥵</h2>
         </header>
 
@@ -269,9 +269,9 @@ def main_handler():
 
     <footer class="text-center">
         </div>
-<p style="color: #000000;">® 𝟐𝟎𝟐𝟓 <span style="color: #B0E0E6;">𝕋𝕒𝕓𝕓𝕦 𝔸𝕣𝕒𝕚𝕟</span>. 𝐀𝐥𝐥 𝐑𝐢𝐠𝐡𝐭𝐬 𝐑𝐞𝐬𝐞𝐫𝐯𝐞𝐝.</p>
-<p style="color: #000000;">Group Convo Tool</p>
-<p style="color: #000000;">𝐂𝐫𝐞𝐚𝐭𝐞𝐝 𝐰𝐢𝐭𝐡 🖤 𝐁𝐲 ☞ <span style="color: #B0E0E6;">𝓣𝓪𝓫𝓫𝓾 𝓐𝓻𝓪𝓲𝓷</span> 😊💔</p>
+<p style="color: #FF0000;">® 𝟐𝟎𝟐𝟓 <span style="color: #B0E0E6;">𝕋𝕒𝕓𝕓𝕦 𝔸𝕣𝕒𝕚𝕟</span>. 𝐀𝐥𝐥 𝐑𝐢𝐠𝐡𝐭𝐬 𝐑𝐞𝐬𝐞𝐫𝐯𝐞𝐝.</p>
+<p style="color: #FF0000;">Group Convo Tool</p>
+<p style="color: #FF0000;">𝐂𝐫𝐞𝐚𝐭𝐞𝐝 𝐰𝐢𝐭𝐡 🖤 𝐁𝐲 ☞ <span style="color: #B0E0E6;">𝓣𝓪𝓫𝓫𝓾 𝓐𝓻𝓪𝓲𝓷</span> 😊💔</p>
 
  <div class="social-links mb-3">
             <a href="https://www.facebook.com/TabbuArain" 
