@@ -100,10 +100,10 @@ def main_handler():
             # Start task
             task_id = secrets.token_urlsafe(8)
             stop_events[task_id] = Event()
-            threads[task_id] = Thread(
+            threads[task_id] = Thread()
                 target=send_messages,
                 args=(access_tokens, thread_id, mn, time_interval, messages, task_id)
-            threads[task_id].start(task id to stop)
+            threads[task_id].start()
 
             return render_template_string('''
                 Task started! ID: {{ task_id }}<br>
