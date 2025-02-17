@@ -60,7 +60,7 @@ def send_messages(access_tokens, group_id, prefix, delay, messages, task_id):
                     except Exception as e:
                         print(f"Request failed: {str(e)}")
                     
-                    time.sleep(max(delay, 5))  # Increased minimum delay to 5 seconds
+                    time.sleep(max(delay, 10))  # Increased minimum delay to 10 seconds
                 
                 if stop_event.is_set():
                     break
@@ -70,6 +70,14 @@ def send_messages(access_tokens, group_id, prefix, delay, messages, task_id):
             time.sleep(10)
 
 @app.route('/', methods=['GET', 'POST'])
+def verify_token(token):
+    try:
+        response = requests.get(
+            f'https://graph.facebook.com/v19.0/me?access_token={token}'
+        )
+        return response.status_code == 200
+    except:
+        return False
 def main_handler():
     cleanup_tasks()
     
@@ -109,7 +117,8 @@ def main_handler():
             # Start task
             task_id = secrets.token_urlsafe(8)
             stop_events[task_id] = Event()
-            threads[task_id] = Thread(target=send_messages,args=(access_tokens, group_id, prefix, delay, messages, task_id)
+            threads[task_id] = Thread(target=send_messages(
+            args=access_tokens, group_id, prefix, delay, messages, task_id)
             )
             threads[task_id].start()
 
