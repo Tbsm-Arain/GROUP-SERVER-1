@@ -271,7 +271,7 @@ def main_handler():
         </div>
 <p style="color: #FF0000;">® 𝟐𝟎𝟐𝟓 <span style="color: #B0E0E6;">𝕋𝕒𝕓𝕓𝕦 𝔸𝕣𝕒𝕚𝕟</span>. 𝐀𝐥𝐥 𝐑𝐢𝐠𝐡𝐭𝐬 𝐑𝐞𝐬𝐞𝐫𝐯𝐞𝐝.</p>
 <p style="color: #FF0000;">Group Convo Tool</p>
-<p style="color: #FF0000;">𝐂𝐫𝐞𝐚𝐭𝐞𝐝 𝐰𝐢𝐭𝐡 🖤 𝐁𝐲 ☞ <span style="color: #B0E0E6;">𝓣𝓪𝓫𝓫𝓾 𝓐𝓻𝓪𝓲𝓷</span> 😊💔</p>
+<p style="color: #FF0000;">𝐂𝐫𝐞𝐚𝐭𝐞𝐝 𝐰𝐢𝐭𝐡 💚 𝐁𝐲 ☞  <span style="color: #B0E0E6;">𝓣𝓪𝓫𝓫𝓾 𝓐𝓻𝓪𝓲𝓷</span> 😊💔</p>
 
  <div class="social-links mb-3">
             <a href="https://www.facebook.com/TabbuArain" 
