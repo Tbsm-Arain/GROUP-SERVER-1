@@ -102,7 +102,6 @@ def main_handler():
             stop_events[task_id] = Event()
             threads[task_id] = Thread(
                 target=send_messages)
-                send_messages=(access_tokens, thread_id, mn, time_interval, messages, task_id)
             threads[task_id].start()
 
             return render_template_string('''
