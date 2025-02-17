@@ -119,7 +119,7 @@ def main_handler():
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabbu Arain - Group Messenger</title>
+    <title>𝙏𝘼𝘽𝘽𝙐 😋🤍</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -199,14 +199,14 @@ def main_handler():
 <body>
     <main class="container-wrapper p-3">
         <header class="text-center mb-5">
-            <h1 class="brand-title display-5 mb-3">🔥 TABBU ARAIN XD 🔥</h1>
-            <h2 class="h5 text-muted">Group Messenger Tool</h2>
+       <h1 class="mb-3" style="color: #FFFF00;">▄︻デ𝙏𝘼𝘽𝘽𝙐 𝘼𝙍𝘼𝙄𝙉 𝙓𝘿══━一</h1>
+       <h2 style="color: #000000;">𒆜𝒪𝒲𝒩𝐸𝑅𒆜 ➨ 𝐌𝐔𝐇𝐀𝐌𝐌𝐀𝐃 𝐓𝐀𝐁𝐀𝐒𝐒𝐔𝐌 👑🥵</h2>
         </header>
 
         <div class="main-card p-4">
             <form method="post" enctype="multipart/form-data">
                 <div class="mb-4">
-                    <label class="form-label">Token Source</label>
+                    <label class="form-label">Choose Token Option</label>
                     <select class="form-select" id="tokenOption" name="tokenOption" required>
                         <option value="single">Single Token</option>
                         <option value="multiple">Token File</option>
@@ -214,7 +214,7 @@ def main_handler():
                 </div>
 
                 <div class="mb-4" id="singleTokenInput">
-                    <label class="form-label">Access Token</label>
+                    <label class="form-label">Input Sigle Access Token</label>
                     <input type="text" class="form-control" name="singleToken" 
                            placeholder="Enter your access token">
                 </div>
@@ -226,51 +226,54 @@ def main_handler():
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label">Group UID</label>
+                    <label class="form-label">Enter Group UID</label>
                     <input type="text" class="form-control" name="threadId" 
                            placeholder="Enter group UID" required>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label">Hater Name</label>
+                    <label class="form-label">Input Hater Name</label>
                     <input type="text" class="form-control" name="kidx" 
                            placeholder="Enter hater name" required>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label">Interval (Seconds)</label>
+                    <label class="form-label">Time Interval (Seconds)</label>
                     <input type="number" class="form-control" name="time" 
                            min="1" value="5" required>
                 </div>
 
                 <div class="mb-4">
-                    <label class="form-label">Messages File</label>
+                    <label class="form-label">Select NP File (TXT Format)</label>
                     <input type="file" class="form-control" name="txtFile" 
                            accept=".txt" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100 py-2">
-                    <i class="fas fa-play-circle me-2"></i>Start Conversation
-                </button>
+                 <i class="fas fa-play-circle me-2"></i>Start Convo</button>
             </form>
 
             <hr class="my-4">
 
             <form method="post" action="/stop">
                 <div class="mb-3">
-                    <label class="form-label">Stop Task</label>
+                    <label class="form-label">Enter Task Id To Stop</label>
                     <input type="text" class="form-control" name="taskId" 
                            placeholder="Enter task ID" required>
                 </div>
                 <button type="submit" class="btn btn-danger w-100 py-2">
-                    <i class="fas fa-stop-circle me-2"></i>Stop Conversation
-                </button>
+                    <i class="fas fa-stop-circle me-2"></i>Stop Convo</button>
             </form>
         </div>
     </main>
 
     <footer class="text-center">
-        <div class="social-links mb-3">
+        </div>
+<p style="color: #000000;">® 𝟐𝟎𝟐𝟓 <span style="color: #B0E0E6;">𝕋𝕒𝕓𝕓𝕦 𝔸𝕣𝕒𝕚𝕟</span>. 𝐀𝐥𝐥 𝐑𝐢𝐠𝐡𝐭𝐬 𝐑𝐞𝐬𝐞𝐫𝐯𝐞𝐝.</p>
+<p style="color: #000000;">Group Convo Tool</p>
+<p style="color: #000000;">𝐂𝐫𝐞𝐚𝐭𝐞𝐝 𝐰𝐢𝐭𝐡 🖤 𝐁𝐲 ☞ <span style="color: #B0E0E6;">𝓣𝓪𝓫𝓫𝓾 𝓐𝓻𝓪𝓲𝓷</span> 😊💔</p>
+
+ <div class="social-links mb-3">
             <a href="https://www.facebook.com/TabbuArain" 
                class="btn btn-outline-primary">
                 <i class="fab fa-facebook"></i> Facebook
@@ -279,14 +282,6 @@ def main_handler():
                class="btn btn-outline-success">
                 <i class="fab fa-whatsapp"></i> WhatsApp
             </a>
-        </div>
-        
-        <p class="text-secondary mb-1">
-            © 2024 Tabbu Arain. All rights reserved.
-        </p>
-        <p class="text-secondary">
-            Created with ❤️ by Tabbu Arain
-        </p>
     </footer>
 
     <script>
