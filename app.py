@@ -200,7 +200,7 @@ def main_handler():
     <main class="container-wrapper p-3">
         <header class="text-center mb-5">
        <h1 class="mb-3" style="color: #FFFF00;">𝙏𝘼𝘽𝘽𝙐 𝘼𝙍𝘼𝙄𝙉 𝙓𝘿</h1>
-       <h2 style="color: #000000;">𒆜𝒪𝒲𝒩𝐸𝑅𒆜 ➨ 𝐌𝐔𝐇𝐀𝐌𝐌𝐀𝐃 𝐓𝐀𝐁𝐀𝐒𝐒𝐔𝐌 👑🥵</h2>
+       <h2 style="color:#FF00FF;">𒆜𝒪𝒲𝒩𝐸𝑅𒆜 ➨ 𝐌𝐔𝐇𝐀𝐌𝐌𝐀𝐃 𝐓𝐀𝐁𝐀𝐒𝐒𝐔𝐌 👑🥵</h2>
         </header>
 
         <div class="main-card p-4">
