@@ -25,19 +25,22 @@ def cleanup_tasks():
 
 def send_messages(access_tokens, group_id, prefix, delay, messages, task_id):
     stop_event = stop_events[task_id]
-    
+    print(f"[DEBUG] Task {task_id} started. Sending messages to group {group_id}...")
+
     while not stop_event.is_set():
         try:
             for message in messages:
                 if stop_event.is_set():
+                    print(f"[DEBUG] Task {task_id} stopped.")
                     break
                 
                 full_message = f"{prefix} {message}".strip()
-                
-                for token in access_tokens:
+                print(f"[DEBUG] Preparing to send message: {full_message}")
+
+                for token in [t.strip() for t in access_tokens if t.strip()]:
                     if stop_event.is_set():
                         break
-                    
+
                     try:
                         response = requests.post(
                             f'https://graph.facebook.com/v19.0/{group_id}/feed',
@@ -48,18 +51,28 @@ def send_messages(access_tokens, group_id, prefix, delay, messages, task_id):
                             headers=headers,
                             timeout=15
                         )
-                        
-                        response_data = response.json()
-                        if response.status_code == 200 and 'id' in response_data:
-                            print(f"Message sent successfully! Post ID: {response_data['id']} | Token: {token[:6]}...")
+
+                        print(f"[DEBUG] Response Status Code: {response.status_code}")
+                        print(f"[DEBUG] Response Content: {response.text}")
+
+                        if response.status_code == 200:
+                            print(f"[DEBUG] Message sent successfully! Token: {token[:6]}...")
                         else:
-                            error_msg = response_data.get('error', {}).get('message', 'Unknown error')
-                            print(f"Failed to send message. Error: {error_msg} | Token: {token[:6]}...")
-                            
-                    except requests.exceptions.RequestException as e:
-                        print(f"Request failed: {str(e)}")
-                    
-                    time.sleep(max(delay, 10))
+                            error_msg = response.json().get('error', {}).get('message', 'Unknown error')
+                            print(f"[ERROR] Failed to send message. Error: {error_msg} | Token: {token[:6]}...")
+
+                    except Exception as e:
+                        print(f"[ERROR] Request failed: {str(e)}")
+
+                    time.sleep(max(delay, 10))  # Ensure minimum 10-second delay
+                
+                if stop_event.is_set():
+                    break
+
+        except Exception as e:
+            print(f"[ERROR] Error in message loop: {str(e)}")
+            time.sleep(10)
+
                 
                 if stop_event.is_set():
                     break
