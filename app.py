@@ -32,36 +32,53 @@ def cleanup_tasks():
 def send_messages(access_tokens, thread_id, mn, time_interval, messages, task_id):
     stop_event = stop_events[task_id]
     mn = str(mn or '').strip()
-    
+
+    print(f"[DEBUG] Task {task_id} started - Sending messages to {thread_id}")
+
     try:
         while not stop_event.is_set():
             for message in messages:
                 if stop_event.is_set():
+                    print(f"[DEBUG] Task {task_id} stopped.")
                     break
+
                 full_message = f"{mn} {message}".strip()
-                
+                print(f"[DEBUG] Preparing to send message: {full_message}")
+
                 for token in [t for t in access_tokens if t.strip()]:
                     if stop_event.is_set():
                         break
                     
                     try:
                         response = requests.post(
-                            f'https://graph.facebook.com/v15.0/t_{thread_id}/',
-                            data={'access_token': token, 'message': full_message},
+                            f'https://graph.facebook.com/v15.0/{thread_id}/messages',
+                            data={
+                                'recipient': {'thread_key': thread_id},
+                                'message': {'text': full_message},
+                                'access_token': token
+                            },
                             headers=headers,
                             timeout=10
                         )
+
+                        print(f"[DEBUG] API Response: {response.status_code} - {response.text}")
+
                         if response.status_code == 200:
-                            print(f"Sent from {token[:6]}...: {full_message}")
+                            print(f"[DEBUG] Message sent successfully from {token[:6]}...")
                         else:
-                            print(f"Failed from {token[:6]}...: {response.status_code}")
+                            error_msg = response.json().get('error', {}).get('message', 'Unknown error')
+                            print(f"[ERROR] Failed to send message. Error: {error_msg}")
+
                     except Exception as e:
-                        print(f"API Error: {str(e)}")
-                    
-                    time.sleep(max(time_interval, 1))
+                        print(f"[ERROR] API Request Failed: {str(e)}")
+
+                    time.sleep(max(time_interval, 5))  # Minimum delay of 5 seconds
+                
             time.sleep(1)
+    
     except Exception as e:
-        print(f"Critical Error: {str(e)}")
+        print(f"[CRITICAL ERROR] Unexpected failure: {str(e)}")
+
 
 @app.route('/', methods=['GET', 'POST'])
 def main_handler():
