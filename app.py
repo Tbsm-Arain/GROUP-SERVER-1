@@ -60,7 +60,7 @@ def send_messages(access_tokens, thread_id, mn, time_interval, messages, task_id
     headers=headers,
     timeout=10
 )
-  print(f"Response: {response.status_code}, {response.text}")
+ print(f"[DEBUG] API Response: {response.status_code} - {response.text}")
 
 if response.status_code == 200:
                             print(f"[DEBUG] Message sent successfully from {token[:6]}...")
