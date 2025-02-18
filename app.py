@@ -107,7 +107,7 @@ def main_handler():
                 return 'No valid access tokens provided', 400
 
             # Start task
-            task_id = secrets.token_urlsafe(😎
+            task_id = secrets.token_urlsafe(
             stop_events[task_id] = Event()
             threads[task_id] = Thread(target=send_messages,
             args=(access_tokens, group_id, prefix, delay, messages, task_id)
