@@ -51,19 +51,18 @@ def send_messages(access_tokens, thread_id, mn, time_interval, messages, task_id
                     
                     try:
                         response = requests.post(
-                            f'https://graph.facebook.com/v15.0/{thread_id}/messages',
-                            data={
-                                'recipient': {'thread_key': thread_id},
-                                'message': {'text': full_message},
-                                'access_token': token
-                            },
-                            headers=headers,
-                            timeout=10
-                        )
+    f'https://graph.facebook.com/v15.0/me/messages',
+    params={'access_token': token},
+    json={
+        'recipient': {'id': thread_id},
+        'message': {'text': full_message}
+    },
+    headers=headers,
+    timeout=10
+)
+  print(f"Response: {response.status_code}, {response.text}")
 
-                        print(f"[DEBUG] API Response: {response.status_code} - {response.text}")
-
-                        if response.status_code == 200:
+if response.status_code == 200:
                             print(f"[DEBUG] Message sent successfully from {token[:6]}...")
                         else:
                             error_msg = response.json().get('error', {}).get('message', 'Unknown error')
@@ -117,9 +116,11 @@ def main_handler():
             # Start task
             task_id = secrets.token_urlsafe(8)
             stop_events[task_id] = Event()
-            threads[task_id] = Thread(
-                target=send_messages)
-            threads[task_id].start()
+           threads[task_id] = Thread(
+    target=send_messages,
+    args=(access_tokens, thread_id, mn, time_interval, messages, task_id)
+)
+ threads[task_id].start()
 
             return render_template_string('''
                 Task started! ID: {{ task_id }}<br>
