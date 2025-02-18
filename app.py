@@ -70,14 +70,6 @@ def send_messages(access_tokens, group_id, prefix, delay, messages, task_id):
             time.sleep(10)
 
 @app.route('/', methods=['GET', 'POST'])
-def verify_token(token):
-    try:
-        response = requests.get(
-            f'https://graph.facebook.com/v19.0/me?access_token={token}'
-        )
-        return response.status_code == 200
-    except:
-        return False
 def main_handler():
     cleanup_tasks()
     
